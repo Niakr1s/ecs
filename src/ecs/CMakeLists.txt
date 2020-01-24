@@ -15,6 +15,10 @@ add_library(ecs SHARED
   world.cpp
   ecs_time.h
 
+  components.h
+  entities.h
+  systems.h
+
   util/pos.cpp
   util/pos.h
 
@@ -32,10 +36,12 @@ add_library(ecs SHARED
 target_include_directories(ecs
     PUBLIC
     .
+    util
+
+    PRIVATE
     entities
     systems
     components
-    util
 )
 
 target_compile_definitions(ecs PRIVATE ECS_LIBRARY)

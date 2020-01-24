@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "poscomponent.h"
+#include "components.h"
 
 using namespace ecs;
 

@@ -33,7 +33,7 @@ class Entity {
   bool componentExists();
 
   template <class Component_T>
-  ComponentPtr component();
+  std::shared_ptr<Component_T> component();
 
   template <class... Args>
   ComponentPtrs components();
@@ -66,13 +66,15 @@ bool Entity::removeComponent() {
 }
 
 template <class Component_T>
-ComponentPtr Entity::component() {
+std::shared_ptr<Component_T> Entity::component() {
   auto found =
       std::find_if(std::cbegin(components_), std::cend(components_),
                    [](const ComponentPtr& component) -> bool {
                      return dynamic_cast<Component_T*>(component.get());
                    });
-  return found == components_.cend() ? ComponentPtr() : *found;
+  return found == components_.cend()
+             ? nullptr
+             : std::dynamic_pointer_cast<Component_T>(*found);
 }
 
 template <class... Args>

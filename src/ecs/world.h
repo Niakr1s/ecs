@@ -27,13 +27,13 @@ class World {
   inline void addSystem(const SystemPtr& system) { systems_.insert(system); }
 
   template <class Entity_T>
-  EntityPtr entity();
+  EntityPtr entity() const;
 
   template <class... Args>
-  EntityPtrs filterByComponents();
+  EntityPtrs filterByComponents() const;
 
   template <class... Args>
-  EntityPtrs filterByComponents(const Entity::State& state);
+  EntityPtrs filterByComponents(const Entity::State& state) const;
 
  private:
   EntityPtrs entities_;
@@ -46,7 +46,7 @@ class World {
 };
 
 template <class Entity_T>
-EntityPtr World::entity() {
+EntityPtr World::entity() const {
   auto found = std::find_if(std::cbegin(entities_), std::cend(entities_),
                             [](const EntityPtr& entity) {
                               return dynamic_cast<Entity_T*>(entity.get());
@@ -55,7 +55,7 @@ EntityPtr World::entity() {
 }
 
 template <class... Args>
-EntityPtrs World::filterByComponents() {
+EntityPtrs World::filterByComponents() const {
   EntityPtrs res;
   std::copy_if(std::begin(entities_), std::end(entities_),
                std::inserter(res, std::end(res)), [](const EntityPtr& entity) {
@@ -65,7 +65,7 @@ EntityPtrs World::filterByComponents() {
 }
 
 template <class... Args>
-EntityPtrs World::filterByComponents(const Entity::State& state) {
+EntityPtrs World::filterByComponents(const Entity::State& state) const {
   EntityPtrs res = filterByComponents<Args...>();
   for (auto it = std::begin(res); it != std::end(res);) {
     if ((*it)->getState() != state) {

@@ -11,6 +11,8 @@ add_library(ecs SHARED
   component.h
   system.cpp
   system.h
+  world.h
+  world.cpp
 )
 
 target_include_directories(ecs

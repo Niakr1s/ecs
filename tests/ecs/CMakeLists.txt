@@ -8,6 +8,7 @@ file(GLOB mock mock/*)
 add_executable(ecs_tests
     main.cpp
     entity_tests.h
+    world_tests.h
     ${mock}
 )
 

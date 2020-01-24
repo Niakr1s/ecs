@@ -37,32 +37,46 @@ TEST(entity, removeComponent1) {
   ASSERT_EQ(e.componentsSize(), 0);
 }
 
-TEST(entity, filter0) {
+TEST(entity, component1) {
   auto [e, c1, c2] = initEntity();
 
-  ComponentPtrs filtered = e.filterComponents<>();
+  ComponentPtr filtered = e.component<ComponentMock1>();
+  ASSERT_NE(filtered, nullptr);
+}
+
+TEST(entity, component2) {
+  auto [e, c1, c2] = initEntity();
+
+  ComponentPtr filtered = e.component<ComponentMock2>();
+  ASSERT_NE(filtered, nullptr);
+}
+
+TEST(entity, components0) {
+  auto [e, c1, c2] = initEntity();
+
+  ComponentPtrs filtered = e.components<>();
   ASSERT_EQ(filtered.size(), 0);
 }
 
-TEST(entity, filter1) {
+TEST(entity, components1) {
   auto [e, c1, c2] = initEntity();
 
-  ComponentPtrs filtered = e.filterComponents<ComponentMock1>();
+  ComponentPtrs filtered = e.components<ComponentMock1>();
   ASSERT_EQ(filtered.size(), 1);
 }
 
-TEST(entity, filter2) {
+TEST(entity, components2) {
   auto [e, c1, c2] = initEntity();
 
-  ComponentPtrs filtered = e.filterComponents<ComponentMock2>();
-  ASSERT_EQ(filtered.size(), 1);
-}
-
-TEST(entity, filter12) {
-  auto [e, c1, c2] = initEntity();
-
-  ComponentPtrs filtered = e.filterComponents<ComponentMock1, ComponentMock2>();
+  ComponentPtrs filtered = e.components<ComponentMock1, ComponentMock2>();
   ASSERT_EQ(filtered.size(), 2);
+}
+
+TEST(entity, components22) {
+  auto [e, c1, c2] = initEntity();
+
+  ComponentPtrs filtered = e.components<ComponentMock2, ComponentMock2>();
+  ASSERT_EQ(filtered.size(), 1);
 }
 
 #endif  // COMPONENT_TESTS_H

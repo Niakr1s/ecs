@@ -1,3 +1,3 @@
-#include "component.h"
+#include "world.h"
 
 namespace ecs {}  // namespace ecs

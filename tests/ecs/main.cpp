@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "entity_tests.h"
+#include "world_tests.h"
 
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);

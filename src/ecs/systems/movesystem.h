@@ -11,6 +11,9 @@ class MoveSystem : public System {
   MoveSystem();
 
   void process(const World& world, std::chrono::milliseconds diff);
+
+ protected:
+  std::ostream& doPrint(std::ostream& out) const override;
 };
 
 }  // namespace ecs

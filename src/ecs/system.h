@@ -5,12 +5,13 @@
 #include <vector>
 
 #include "ecs_time.h"
+#include "printable.h"
 
 namespace ecs {
 
 class World;
 
-class System {
+class System : public Printable {
  public:
   virtual ~System() = default;
 

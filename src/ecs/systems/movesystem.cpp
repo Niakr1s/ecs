@@ -18,4 +18,8 @@ void MoveSystem::process(const World& world, std::chrono::milliseconds diff) {
   }
 }
 
+std::ostream& MoveSystem::doPrint(std::ostream& out) const {
+  return out << "MoveSystem";
+}
+
 }  // namespace ecs

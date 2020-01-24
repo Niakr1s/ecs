@@ -13,4 +13,8 @@ void DirectionMoveComponent::move(std::shared_ptr<PosComponent> pos_component,
   (*pos_component) += diff_pos;
 }
 
+std::ostream &DirectionMoveComponent::doPrint(std::ostream &out) const {
+  return out << "DirectionMoveComponent(" << angle_ << ", " << speed_ << ")";
+}
+
 }  // namespace ecs

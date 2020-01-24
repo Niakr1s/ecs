@@ -1,14 +1,15 @@
 #ifndef POS_H
 #define POS_H
 
-#include <initializer_list>
+#include <iostream>
+
+#include "printable.h"
 
 namespace ecs {
 
-class Pos {
+class Pos : public Printable {
  public:
   Pos(int x, int y);
-  Pos(std::initializer_list<int> lst);
 
   inline int x() const { return x_; }
   inline int y() const { return y_; }
@@ -20,6 +21,8 @@ class Pos {
   void operator-=(const Pos& rhs);
 
   bool operator==(const Pos& rhs) const;
+
+  std::ostream& doPrint(std::ostream& out) const override;
 
  private:
   int x_, y_;

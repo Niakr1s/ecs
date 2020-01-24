@@ -26,4 +26,8 @@ bool Pos::operator==(const Pos &rhs) const {
   return (x_ == rhs.x_ && y_ == rhs.y_);
 }
 
+std::ostream &Pos::doPrint(std::ostream &out) const {
+  return out << "Pos(" << x_ << ", " << y_ << ")";
+}
+
 }  // namespace ecs

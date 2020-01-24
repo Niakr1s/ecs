@@ -12,6 +12,7 @@ class SystemMock1 : public System {
   MOCK_METHOD(void, process,
               (const ecs::World& world, std::chrono::milliseconds diff),
               (override));
+  MOCK_METHOD(std::ostream&, doPrint, (std::ostream & out), (const, override));
 };
 
 // class SystemMock2 : public System {};

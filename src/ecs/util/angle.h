@@ -1,6 +1,8 @@
 #ifndef ANGLE_H
 #define ANGLE_H
 
+#include "printable.h"
+
 namespace ecs {
 
 /*
@@ -13,7 +15,7 @@ namespace ecs {
  *          |
  */
 
-class Angle {
+class Angle : public Printable {
  public:
   Angle(double degree);
 
@@ -21,6 +23,8 @@ class Angle {
 
   double diffX() const;
   double diffY() const;
+
+  std::ostream &doPrint(std::ostream &out) const override;
 
  private:
   double degree_;

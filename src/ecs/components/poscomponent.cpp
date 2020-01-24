@@ -32,4 +32,8 @@ bool PosComponent::operator!=(const PosComponent &rhs) const {
   return !(*this == rhs);
 }
 
+std::ostream &PosComponent::doPrint(std::ostream &out) const {
+  return out << "PosComponent(" << pos_ << ")";
+}
+
 }  // namespace ecs

@@ -24,6 +24,8 @@ TEST(movesystem, move_x_ascending) {
 
   Pos expect_pos(52, 50);
 
+  std::cout << *move_s << ": " << *dir_move_c << ", " << *pos_c << "\n";
+
   ASSERT_NE(*pos_c, old_pos);
   ASSERT_EQ(*pos_c, expect_pos);
 }

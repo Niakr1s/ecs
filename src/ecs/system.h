@@ -2,7 +2,7 @@
 #define SYSTEM_H
 
 #include <memory>
-#include <set>
+#include <vector>
 
 #include "ecs_time.h"
 
@@ -18,7 +18,7 @@ class System {
 };
 
 using SystemPtr = std::shared_ptr<System>;
-using SystemPtrs = std::set<SystemPtr>;
+using SystemPtrs = std::vector<SystemPtr>;
 
 }  // namespace ecs
 

@@ -24,7 +24,7 @@ class World {
 
   inline void addEntity(const EntityPtr& entity) { entities_.insert(entity); }
 
-  inline void addSystem(const SystemPtr& system) { systems_.insert(system); }
+  inline void addSystem(const SystemPtr& system) { systems_.push_back(system); }
 
   template <class Entity_T>
   EntityPtr entity() const;

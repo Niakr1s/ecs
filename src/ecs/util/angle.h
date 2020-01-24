@@ -26,6 +26,7 @@ class Angle : public Printable {
   double diffX() const;
   double diffY() const;
 
+ protected:
   std::ostream &doPrint(std::ostream &out) const override;
 
  private:

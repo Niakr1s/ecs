@@ -22,6 +22,7 @@ class Pos : public Printable {
 
   bool operator==(const Pos& rhs) const;
 
+ protected:
   std::ostream& doPrint(std::ostream& out) const override;
 
  private:

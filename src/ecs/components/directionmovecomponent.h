@@ -15,6 +15,7 @@ class DirectionMoveComponent : public MoveComponent {
   void move(std::shared_ptr<PosComponent> pos_component,
             std::chrono::milliseconds diff) override;
 
+ protected:
   std::ostream& doPrint(std::ostream& out) const override;
 
  private:

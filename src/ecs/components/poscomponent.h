@@ -28,6 +28,7 @@ class PosComponent : public Component {
   bool operator!=(const Pos& rhs) const;
   bool operator!=(const PosComponent& rhs) const;
 
+ protected:
   std::ostream& doPrint(std::ostream& out) const override;
 
  private:

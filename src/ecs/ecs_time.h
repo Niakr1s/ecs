@@ -9,7 +9,10 @@ using Time_t = std::chrono::time_point<std::chrono::high_resolution_clock>;
 
 inline Time_t now() { return std::chrono::high_resolution_clock::now(); }
 
-using Time_diff_ns_t = std::chrono::duration<long long, std::nano>;
+inline std::chrono::milliseconds diff_time(const Time_t& start,
+                                           const Time_t& end) {
+  return std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+}
 
 }  // namespace ecs
 

@@ -12,7 +12,7 @@ class DirectionMoveComponent : public MoveComponent {
   DirectionMoveComponent(const Angle& angle, double speed);
 
   void move(std::shared_ptr<PosComponent> pos_component,
-            Time_diff_ns_t diff_ns) override;
+            std::chrono::milliseconds diff) override;
 
  private:
   Angle angle_;

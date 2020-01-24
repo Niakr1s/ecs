@@ -12,7 +12,7 @@ class MoveComponent : public Component {
   ~MoveComponent();
 
   virtual void move(std::shared_ptr<PosComponent> pos_component,
-                    Time_diff_ns_t diff_ns) = 0;
+                    std::chrono::milliseconds diff) = 0;
 };
 
 }  // namespace ecs

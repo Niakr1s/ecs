@@ -10,7 +10,7 @@ class MoveSystem : public System {
  public:
   MoveSystem();
 
-  void process(const World& world, Time_diff_ns_t diff_ns);
+  void process(const World& world, std::chrono::milliseconds diff);
 };
 
 }  // namespace ecs

@@ -9,7 +9,8 @@ using namespace ecs;
 
 class SystemMock1 : public System {
  public:
-  MOCK_METHOD(void, process, (const ecs::World& world, Time_diff_ns_t diff_ns),
+  MOCK_METHOD(void, process,
+              (const ecs::World& world, std::chrono::milliseconds diff),
               (override));
 };
 

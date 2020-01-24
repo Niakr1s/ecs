@@ -6,4 +6,6 @@ namespace ecs {
 
 Entity::Entity() {}
 
+Entity::~Entity() {}
+
 }  // namespace ecs

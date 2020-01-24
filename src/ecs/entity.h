@@ -16,6 +16,7 @@ using EntityPtrs = std::set<EntityPtr>;
 class Entity {
  public:
   Entity();
+  virtual ~Entity();
 
   template <class Component_T, class... Args>
   void setComponent(Args... args);

@@ -11,4 +11,6 @@ class ComponentMock1 : public Component {};
 
 class ComponentMock2 : public Component {};
 
+class ComponentMock3 : public Component {};
+
 #endif  // COMPONENT_MOCK_H

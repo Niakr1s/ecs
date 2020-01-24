@@ -43,11 +43,12 @@ class Entity {
 
 template <class Component_T>
 bool Entity::componentExists() {
-  return component<Component_T>();
+  return !(component<Component_T>() == nullptr);
 }
 
 template <class Component_T, class... Args>
 void Entity::setComponent(Args... args) {
+  removeComponent<Component_T>();
   components_.insert(ComponentPtr(new Component_T(args...)));
 }
 

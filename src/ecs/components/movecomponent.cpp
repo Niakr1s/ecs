@@ -1,3 +1,7 @@
 #include "movecomponent.h"
 
-namespace ecs {}  // namespace ecs
+namespace ecs {
+
+MoveComponent::~MoveComponent() {}
+
+}  // namespace ecs

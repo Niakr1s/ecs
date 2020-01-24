@@ -1,5 +1,5 @@
-#ifndef COMPONENT_TESTS_H
-#define COMPONENT_TESTS_H
+#ifndef ENTITY_TESTS_H
+#define ENTITY_TESTS_H
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -92,4 +92,4 @@ TEST(entity, components22) {
   ASSERT_EQ(filtered.size(), 1);
 }
 
-#endif  // COMPONENT_TESTS_H
+#endif  // ENTITY_TESTS_H

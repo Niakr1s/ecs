@@ -4,6 +4,7 @@
 #include <iterator>
 
 #include "entity.h"
+#include "system.h"
 
 namespace ecs {
 
@@ -12,6 +13,10 @@ class World {
   World();
 
   inline void addEntity(const EntityPtr& entity) { entities_.insert(entity); }
+
+  inline void addSystem(const SystemPtr& system) { systems_.insert(system); }
+
+  void nextFrame();
 
   template <class Entity_T>
   EntityPtr entity();
@@ -24,6 +29,7 @@ class World {
 
  private:
   EntityPtrs entities_;
+  SystemPtrs systems_;
 };
 
 template <class Entity_T>

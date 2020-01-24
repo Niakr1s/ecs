@@ -1,7 +1,3 @@
 #include "system.h"
 
-namespace ecs {
-
-System::System() {}
-
-}  // namespace ecs
+namespace ecs {}  // namespace ecs

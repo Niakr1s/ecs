@@ -17,7 +17,7 @@ class Entity {
  public:
   Entity();
 
-  void addComponent(const ComponentPtr& component);
+  void setComponent(const ComponentPtr& component);
   void removeComponent(const ComponentPtr& component);
 
   inline size_t componentsSize() { return components_.size(); }

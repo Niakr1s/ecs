@@ -15,13 +15,13 @@ std::tuple<Entity, ComponentPtr, ComponentPtr> initEntity() {
 
   Entity entity;
 
-  entity.addComponent(component1);
-  entity.addComponent(component2);
+  entity.setComponent(component1);
+  entity.setComponent(component2);
 
   return {entity, component1, component2};
 }
 
-TEST(entity, addComponent1) {
+TEST(entity, setComponent1) {
   auto [e, c1, c2] = initEntity();
 
   ASSERT_EQ(e.componentsSize(), 2);

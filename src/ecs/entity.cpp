@@ -6,7 +6,7 @@ namespace ecs {
 
 Entity::Entity() {}
 
-void Entity::addComponent(const ComponentPtr& component) {
+void Entity::setComponent(const ComponentPtr& component) {
   components_.insert(component);
 }
 

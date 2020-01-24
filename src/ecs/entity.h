@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <algorithm>
-#include <vector>
+#include <set>
 
 #include "component.h"
 
@@ -11,7 +11,7 @@ namespace ecs {
 class Entity;
 
 using EntityPtr = std::shared_ptr<Entity>;
-using EntityPtrs = std::vector<EntityPtr>;
+using EntityPtrs = std::set<EntityPtr>;
 
 class Entity {
  public:

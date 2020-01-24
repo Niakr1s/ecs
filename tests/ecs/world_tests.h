@@ -4,6 +4,7 @@
 #include <gtest/gtest.h>
 
 #include "entity.h"
+#include "mock/component_mock.h"
 #include "world.h"
 
 using namespace ecs;

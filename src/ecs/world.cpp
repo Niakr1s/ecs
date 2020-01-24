@@ -1,3 +1,7 @@
 #include "world.h"
 
-namespace ecs {}  // namespace ecs
+namespace ecs {
+
+World::World() {}
+
+}  // namespace ecs

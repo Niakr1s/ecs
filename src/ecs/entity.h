@@ -34,9 +34,6 @@ class Entity {
 
   inline size_t componentsSize() { return components_.size(); }
 
-  template <class... Args>
-  static EntityPtrs filter(const EntityPtrs& entities);
-
  protected:
   ComponentPtrs components_;
 };
@@ -75,16 +72,6 @@ template <class... Args>
 ComponentPtrs Entity::components() {
   ComponentPtrs res{component<Args>()...};
   res.erase(nullptr);
-  return res;
-}
-
-template <class... Args>
-EntityPtrs Entity::filter(const EntityPtrs& entities) {
-  EntityPtrs res;
-  std::copy_if(std::begin(entities), std::end(entities),
-               std::back_inserter(res), [](const EntityPtr& entity) {
-                 return ((entity->component<Args>()) && ...);
-               });
   return res;
 }
 

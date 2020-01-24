@@ -11,9 +11,9 @@
 
 using namespace ecs;
 
-TEST(movesystem, test1) {
+TEST(movesystem, move_x_ascending) {
   std::shared_ptr<DirectionMoveComponent> dir_move_c(
-      new DirectionMoveComponent(Angle(0.), 2. / 1000.));
+      new DirectionMoveComponent(Angle(0), Speed(2)));
 
   Pos old_pos(50, 50);
   std::shared_ptr<PosComponent> pos_c(new PosComponent(old_pos));
@@ -23,6 +23,23 @@ TEST(movesystem, test1) {
   dir_move_c->move(pos_c, std::chrono::seconds(1));
 
   Pos expect_pos(52, 50);
+
+  ASSERT_NE(*pos_c, old_pos);
+  ASSERT_EQ(*pos_c, expect_pos);
+}
+
+TEST(movesystem, move_y_ascending) {
+  std::shared_ptr<DirectionMoveComponent> dir_move_c(
+      new DirectionMoveComponent(Angle(Angle::PI / 2), Speed(2)));
+
+  Pos old_pos(50, 50);
+  std::shared_ptr<PosComponent> pos_c(new PosComponent(old_pos));
+
+  std::shared_ptr<MoveSystem> move_s(new MoveSystem());
+
+  dir_move_c->move(pos_c, std::chrono::seconds(1));
+
+  Pos expect_pos(50, 52);
 
   ASSERT_NE(*pos_c, old_pos);
   ASSERT_EQ(*pos_c, expect_pos);

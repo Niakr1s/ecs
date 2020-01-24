@@ -26,4 +26,10 @@ bool PosComponent::operator==(const PosComponent &rhs) const {
   return pos_ == rhs.pos_;
 }
 
+bool PosComponent::operator!=(const Pos &rhs) const { return !(*this == rhs); }
+
+bool PosComponent::operator!=(const PosComponent &rhs) const {
+  return !(*this == rhs);
+}
+
 }  // namespace ecs

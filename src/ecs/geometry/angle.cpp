@@ -1,5 +1,7 @@
 #include "angle.h"
 
+#include <cmath>
+
 namespace ecs {
 
 Angle::Angle(double degree) : degree_(degree) {}

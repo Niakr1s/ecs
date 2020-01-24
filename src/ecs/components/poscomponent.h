@@ -25,6 +25,9 @@ class PosComponent : public Component {
   bool operator==(const Pos& rhs) const;
   bool operator==(const PosComponent& rhs) const;
 
+  bool operator!=(const Pos& rhs) const;
+  bool operator!=(const PosComponent& rhs) const;
+
  private:
   Pos pos_;
 };

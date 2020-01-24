@@ -10,6 +10,9 @@ add_executable(ecs_tests
     entity_tests.h
     world_tests.h
     system_tests.h
+    movesystem_tests.h
+    pos_tests.h
+    poscomponent_tests.h
     ${mock}
 )
 

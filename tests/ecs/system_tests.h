@@ -27,7 +27,7 @@ TEST(system, works) {
 
   std::this_thread::sleep_for(std::chrono::microseconds(10));
   w.stop();
-  std::this_thread::sleep_for(std::chrono::microseconds(10));
+  std::this_thread::sleep_for(std::chrono::microseconds(100));
 }
 
 #endif  // SYSTEM_TESTS_H

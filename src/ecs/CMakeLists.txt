@@ -14,6 +14,19 @@ add_library(ecs SHARED
   world.h
   world.cpp
   ecs_time.h
+
+  util/pos.cpp
+  util/pos.h
+
+  systems/movesystem.cpp
+  systems/movesystem.h
+
+  components/poscomponent.cpp
+  components/poscomponent.h
+  components/movecomponent.cpp
+  components/movecomponent.h
+  components/directionmovecomponent.cpp
+  components/directionmovecomponent.h
 )
 
 target_include_directories(ecs
@@ -22,6 +35,7 @@ target_include_directories(ecs
     entities
     systems
     components
+    util
 )
 
 target_compile_definitions(ecs PRIVATE ECS_LIBRARY)

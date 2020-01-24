@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 
 #include "entity_tests.h"
+#include "movesystem_tests.h"
+#include "pos_tests.h"
+#include "poscomponent_tests.h"
 #include "system_tests.h"
 #include "world_tests.h"
 

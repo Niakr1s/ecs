@@ -9,7 +9,7 @@ using Time_t = std::chrono::time_point<std::chrono::high_resolution_clock>;
 
 inline Time_t now() { return std::chrono::high_resolution_clock::now(); }
 
-using Time_diff_ns_t = decltype(now() - now());
+using Time_diff_ns_t = std::chrono::duration<long long, std::nano>;
 
 }  // namespace ecs
 

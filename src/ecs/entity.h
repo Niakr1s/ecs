@@ -18,6 +18,11 @@ class Entity {
   Entity();
   virtual ~Entity();
 
+  enum class State { ACTIVE, DISABLED, DEAD };
+
+  inline void setState(const State& state) { state_ = state; }
+  inline State getState() const { return state_; }
+
   template <class Component_T, class... Args>
   void setComponent(Args... args);
 
@@ -37,6 +42,7 @@ class Entity {
 
  protected:
   ComponentPtrs components_;
+  State state_ = State::ACTIVE;
 };
 
 template <class Component_T>

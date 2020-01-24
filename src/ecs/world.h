@@ -19,6 +19,9 @@ class World {
   template <class... Args>
   EntityPtrs filterByComponents();
 
+  template <class... Args>
+  EntityPtrs filterByComponents(const Entity::State& state);
+
  private:
   EntityPtrs entities_;
 };
@@ -39,6 +42,19 @@ EntityPtrs World::filterByComponents() {
                std::inserter(res, std::end(res)), [](const EntityPtr& entity) {
                  return ((entity->component<Args>()) && ...);
                });
+  return res;
+}
+
+template <class... Args>
+EntityPtrs World::filterByComponents(const Entity::State& state) {
+  EntityPtrs res = filterByComponents<Args...>();
+  for (auto it = std::begin(res); it != std::end(res);) {
+    if ((*it)->getState() != state) {
+      it = res.erase(it);
+    } else {
+      ++it;
+    }
+  }
   return res;
 }
 

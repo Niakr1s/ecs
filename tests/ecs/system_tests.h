@@ -4,6 +4,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include <thread>
+
 #include "mock/entity_mock.h"
 #include "mock/system_mock.h"
 #include "world.h"
@@ -15,12 +17,17 @@ using namespace ecs;
 
 TEST(system, works) {
   auto system = std::make_shared<SystemMock1>();
-  EXPECT_CALL(*system, process(_)).Times(AtLeast(1));
+  EXPECT_CALL(*system, process).Times(AtLeast(1));
 
   World w;
   w.addSystem(system);
 
-  EXPECT_NO_THROW(w.nextFrame());
+  auto t = std::thread([&] { w.start(); });
+  t.detach();
+
+  std::this_thread::sleep_for(std::chrono::microseconds(10));
+  w.stop();
+  std::this_thread::sleep_for(std::chrono::microseconds(10));
 }
 
 #endif  // SYSTEM_TESTS_H

@@ -1,8 +1,10 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include <chrono>
 #include <iterator>
 
+#include "ecs_time.h"
 #include "entity.h"
 #include "system.h"
 
@@ -12,11 +14,17 @@ class World {
  public:
   World();
 
+  enum class Status { INIT, RUNNING, PAUSED, STOPPED };
+
+  void start();
+
+  inline void pause() { status_ = Status::PAUSED; }
+  inline void unpause() { status_ = Status::RUNNING; }
+  inline void stop() { status_ = Status::STOPPED; }
+
   inline void addEntity(const EntityPtr& entity) { entities_.insert(entity); }
 
   inline void addSystem(const SystemPtr& system) { systems_.insert(system); }
-
-  void nextFrame();
 
   template <class Entity_T>
   EntityPtr entity();
@@ -30,6 +38,11 @@ class World {
  private:
   EntityPtrs entities_;
   SystemPtrs systems_;
+
+  Status status_;
+  Time_t last_update_time_;
+
+  void loop();
 };
 
 template <class Entity_T>

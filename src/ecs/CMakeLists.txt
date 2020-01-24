@@ -13,6 +13,7 @@ add_library(ecs SHARED
   system.h
   world.h
   world.cpp
+  ecs_time.h
 )
 
 target_include_directories(ecs

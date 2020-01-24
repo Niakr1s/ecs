@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB ecs_src
     *.cpp *.h
-    util/*.cpp util/*.h
+    geometry/*.cpp geometry/*.h
     systems/*.cpp systems/*.h
     entities/*.cpp entities/*.h
     components/*.cpp components/*.h
@@ -19,7 +19,7 @@ add_library(ecs SHARED
 target_include_directories(ecs
     PUBLIC
     .
-    util
+    geometry
 
     PRIVATE
     entities

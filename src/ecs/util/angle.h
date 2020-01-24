@@ -17,7 +17,7 @@ namespace ecs {
 
 class Angle : public Printable {
  public:
-  Angle(double degree);
+  Angle(double rad);
 
   inline static double PI = 3.14159265358979323846;
 
@@ -27,7 +27,7 @@ class Angle : public Printable {
   std::ostream &doPrint(std::ostream &out) const override;
 
  private:
-  double degree_;
+  double rad_;
 };
 
 }  // namespace ecs

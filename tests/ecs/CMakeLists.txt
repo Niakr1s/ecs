@@ -3,17 +3,13 @@ cmake_minimum_required(VERSION 2.8)
 find_package(GTest CONFIG REQUIRED)
 enable_testing()
 
-file(GLOB mock mock/*)
+file(GLOB ecs_tests_src
+    *.cpp *.h
+    mock/*.cpp mock/*.h
+)
 
 add_executable(ecs_tests
-    main.cpp
-    entity_tests.h
-    world_tests.h
-    system_tests.h
-    movesystem_tests.h
-    pos_tests.h
-    poscomponent_tests.h
-    ${mock}
+    ${ecs_tests_src}
 )
 
 target_link_libraries(ecs_tests

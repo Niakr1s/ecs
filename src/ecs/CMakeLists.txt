@@ -4,33 +4,16 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+file(GLOB ecs_src
+    *.cpp *.h
+    util/*.cpp util/*.h
+    systems/*.cpp systems/*.h
+    entities/*.cpp entities/*.h
+    components/*.cpp components/*.h
+)
+
 add_library(ecs SHARED
-  entity.cpp
-  entity.h
-  component.cpp
-  component.h
-  system.cpp
-  system.h
-  world.h
-  world.cpp
-  ecs_time.h
-
-  components.h
-  entities.h
-  systems.h
-
-  util/pos.cpp
-  util/pos.h
-
-  systems/movesystem.cpp
-  systems/movesystem.h
-
-  components/poscomponent.cpp
-  components/poscomponent.h
-  components/movecomponent.cpp
-  components/movecomponent.h
-  components/directionmovecomponent.cpp
-  components/directionmovecomponent.h
+    ${ecs_src}
 )
 
 target_include_directories(ecs

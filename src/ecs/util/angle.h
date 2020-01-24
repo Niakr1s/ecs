@@ -17,9 +17,11 @@ namespace ecs {
 
 class Angle : public Printable {
  public:
-  Angle(double rad);
-
   inline static double PI = 3.14159265358979323846;
+
+  static Angle fromRadians(double rad);
+  static Angle fromDegrees(double deg);
+  static Angle fromPi(double pi_multiplier);
 
   double diffX() const;
   double diffY() const;
@@ -28,7 +30,17 @@ class Angle : public Printable {
 
  private:
   double rad_;
+
+  Angle(double rad);
 };
+
+namespace angle_literals {
+
+Angle operator"" _rad(long double rad);
+Angle operator"" _deg(long double deg);
+Angle operator"" _pi(long double pi_multiplier);
+
+}  // namespace angle_literals
 
 }  // namespace ecs
 

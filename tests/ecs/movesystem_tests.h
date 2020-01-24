@@ -10,10 +10,11 @@
 #include "world.h"
 
 using namespace ecs;
+using namespace ecs::angle_literals;
 
 TEST(movesystem, move_x_ascending) {
   std::shared_ptr<DirectionMoveComponent> dir_move_c(
-      new DirectionMoveComponent(Angle(0), Speed(2)));
+      new DirectionMoveComponent(0.0_pi, Speed(2)));
 
   Pos old_pos(50, 50);
   std::shared_ptr<PosComponent> pos_c(new PosComponent(old_pos));
@@ -32,7 +33,7 @@ TEST(movesystem, move_x_ascending) {
 
 TEST(movesystem, move_y_ascending) {
   std::shared_ptr<DirectionMoveComponent> dir_move_c(
-      new DirectionMoveComponent(Angle(Angle::PI / 2), Speed(2)));
+      new DirectionMoveComponent(0.5_pi, Speed(2)));
 
   Pos old_pos(50, 50);
   std::shared_ptr<PosComponent> pos_c(new PosComponent(old_pos));
